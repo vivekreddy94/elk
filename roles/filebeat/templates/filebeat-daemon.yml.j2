@@ -42,16 +42,15 @@ spec:
           requests:
             cpu: {{ filebeat.cpurequest }}
             memory: {{ filebeat.memoryrequest }}
-#        livenessProbe:
-#          exec:
-#            command: ["filebeat", "test", "output", "-c", "/etc/filebeat.yml"]
-#          initialDelaySeconds: 60
-#          periodSeconds: 60
-#        readinessProbe:
-#          exec:
-#            command: ["filebeat", "test", "output", "-c", "/etc/filebeat.yml"]
-#          initialDelaySeconds: 60
-#          periodSeconds: 60
+        livenessProbe:
+          exec:
+            command: ["filebeat", "test", "output", "-c", "/etc/filebeat.yml"]
+          periodSeconds: 30
+        startupProbe:
+          exec:
+            command: ["filebeat", "test", "output", "-c", "/etc/filebeat.yml"]
+          failureThreshold: 30
+          periodSeconds: 20
         volumeMounts:
         - name: config
           mountPath: /etc/filebeat.yml

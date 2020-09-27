@@ -2,4 +2,4 @@
   become: true
   become_method: sudo
   roles:
-    - jenkins-master
+    - jenkins_master

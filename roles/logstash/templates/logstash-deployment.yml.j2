@@ -36,13 +36,16 @@ spec:
         livenessProbe:
           httpGet:
             port: api
-          initialDelaySeconds: 60
-          periodSeconds: 60
+          periodSeconds: 30
         readinessProbe:
           httpGet:
             port: api
-          initialDelaySeconds: 60
-          periodSeconds: 60 
+          periodSeconds: 30
+        startupProbe:
+          httpGet:
+            port: api
+          failureThreshold: 30
+          periodSeconds: 20 
         volumeMounts:
           - name: config
             mountPath: /usr/share/logstash/config

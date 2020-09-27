@@ -3,7 +3,7 @@
     state: "{{ install_action | default('present') }}"
     definition:
       apiVersion: storage.k8s.io/v1
-      kind: StorageClass    
+      kind: StorageClass
       metadata:
         name: "{{ elasticsearch.storage_class }}"
       provisioner: kubernetes.io/no-provisioner

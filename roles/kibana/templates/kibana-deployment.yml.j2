@@ -31,16 +31,15 @@ spec:
         ports:
         - containerPort: {{ kibana.port }}
           name: ui
-#        livenessProbe:
-#          httpGet:
-#            port: ui
-#          initialDelaySeconds: 90
-#          periodSeconds: 60
-#        readinessProbe:
-#          httpGet:
-#            port: ui
-#          initialDelaySeconds: 90
-#          periodSeconds: 60
+        livenessProbe:
+          httpGet:
+            port: ui
+          periodSeconds: 30
+        startupProbe:
+          httpGet:
+            port: ui
+          failureThreshold: 30
+          periodSeconds: 20
         volumeMounts:
         - name: config
           mountPath: /usr/share/kibana/config/kibana.yml

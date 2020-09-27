@@ -6,10 +6,10 @@ elasticsearch:
   tag: 7.9.1
   httpport: 9200
   transportport: 9300
-  memoryrequest: 1Gi
-  memorylimit: 1Gi
-  cpurequest: 250m
-  cpulimit: 250m
+  memoryrequest: 2Gi
+  memorylimit: 2Gi
+  cpurequest: 500m
+  cpulimit: 500m
   cluster_name: elasticsearch-cluster
   java_opts: "-Xms512m -Xmx512m"
   storage_class: elasticsearch-storage

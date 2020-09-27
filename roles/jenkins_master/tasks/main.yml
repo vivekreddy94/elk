@@ -10,16 +10,17 @@
   copy:
     src: "{{ item }}"
     dest: "{{ build_path.path }}"
+    mode: 0777
   with_items:
     - Dockerfile
     - plugins.txt
     - supervisord.conf
   tags: image
 
-- name: Log into DockerHub
-  docker_login:
-    username: "{{ docker_login_username }}"
-    password: "{{ docker_login_password }}"
+  #- name: Log into DockerHub
+  #  docker_login:
+  #    username: "{{ docker_login_username }}"
+  #    password: "{{ docker_login_password }}"
 
 - name: Build task image and Pushed to local registry
   docker_image:
